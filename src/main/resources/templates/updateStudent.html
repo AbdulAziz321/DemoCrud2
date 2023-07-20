@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div th:include = "NavBar.html"></div>
+
+   <form method="post" th:action="@{/student/updatestudent/{id} (id = ${stud.studentId})}" th:object ="${stud}" style="border: 3px double #5b5b5b; background-color: #dadada;">
+            <h1  class="mx-5 my-5" >Update Student Information</h1>
+                <div class="row mb-4">
+                  <div class="col">
+                   <div class="form-outline">
+                      <input type="text" id="form6Example1" class="mx-5  form-control w-75" placeholder="Full Name" th:value="${studentId}" th:field="*{studentId}" disabled/>
+                    </div> 
+                  </div>
+                  
+                  <div class="col">
+                  <div class="form-outline">
+                      <input type="text" id="form6Example1" class="mx-5  form-control w-75" placeholder="Full Name" th:value="${studentName}" th:field="*{studentName}" />
+                          <p th:if="${#fields.hasErrors('studentName')}" th:errorclass="error" th:errors="*{studentName}" class="mx-5"  style="color:red"/>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mb-4">
+                <div class="col">
+                <div class="form-outline">
+                      <input type="text" id="form6Example2" class="mx-5 form-control w-75" placeholder="full Father Name" th:value="${studentFather}" th:field="*{studentFather}" />
+                      <p th:if="${#fields.hasErrors('studentFather')}" th:errorclass="error" th:errors="*{studentFather}" class="mx-5"  style="color:red"/>
+                    </div>
+                   </div>
+                    
+                    
+                     <div class="col">
+                      <div class="form-outline">
+                        <input type="text" id="form6Example1" class="mx-5  form-control w-75" placeholder="Address" th:value="${studentAddress}" th:field="*{studentAddress}" />
+                        <p th:if="${#fields.hasErrors('studentAddress')}" th:errorclass="error" th:errors="*{studentAddress}" class="mx-5" style="color:red"/>
+                      </div>
+                    </div>
+                    </div>
+
+                  <div class="row mb-4">
+                  <div class="col">
+                      <div class="form-outline">
+                        <input type="text" id="form6Example2" class="mx-5 form-control w-75" placeholder="Course" th:value="${studentCourseName}" th:field="*{studentCourseName}" />
+                        <p th:if="${#fields.hasErrors('studentCourseName')}" th:errorclass="error" th:errors="*{studentCourseName}"  class="mx-5" style="color:red"/>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-outline">
+                        <input type="text" id="form6Example1" class="mx-5  form-control w-75" placeholder="Collage Name" th:value="${studentCollageName}" th:field="*{studentCollageName}" />
+                        <p th:if="${#fields.hasErrors('studentCollageName')}" th:errorclass="error" th:errors="*{studentCollageName}"  class="mx-5" style="color:red"/>
+                      </div>
+                     </div>
+                     </div>
+                  
+                  <div class="row mb-4">
+                  <div class="col">
+                    <div class="form-outline">
+                        <input type="text" id="form6Example2" class="mx-5 form-control w-75" placeholder="Mobile Number" th:value="${studentMobileNumber}" th:field="*{studentMobileNumber}" />
+                        <p th:if="${#fields.hasErrors('studentMobileNumber')}" th:errorclass="error" th:errors="*{studentMobileNumber}"  class="mx-5" style="color:red"/>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-outline">
+                        <input type="text" id="form6Example1" class="mx-5  form-control w-75" placeholder="Father Mobile Number" th:value="${studentFatherMobileNumber}" th:field="*{studentFatherMobileNumber}" />
+                        <p th:if="${#fields.hasErrors('studentFatherMobileNumber')}" th:errorclass="error" th:errors="*{studentFatherMobileNumber}" class="mx-5" style="color:red"/>
+                      </div>
+                      </div>
+                  </div>
+                  <button type="submit" class="btn btn-dark mx-5 my-5">Submit</button>
+        </form>
+
+</body>
+</html>

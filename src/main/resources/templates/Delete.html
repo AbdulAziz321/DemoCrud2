@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Delete Student</title>
+</head>
+<body>
+
+<div th:include = "NavBar.html"></div>
+
+
+<table class="table table-bordered">
+
+<tr class = "table-secondary">
+
+<th>Id</th>
+<th>Name</th>
+<th>Mobile</th>
+<th>Father Name</th>
+<th>Father Mobile</th>
+<th>Address</th>
+<th>Course</th>
+<th>College</th>
+<th>Delete </th>
+
+</tr>
+
+<tr th:each = " student : ${stud} " class = "table-secondary">
+
+<td th:text="${student.studentId}"></td>
+<td th:text="${student.studentName}"></td>
+<td th:text="${student.studentMobileNumber}"></td>
+<td th:text="${student.studentFather}"></td>
+<td th:text="${student.studentFatherMobileNumber}"></td>
+<td th:text="${student.studentAddress}"></td>
+<td th:text="${student.studentCourseName}"></td>
+<td th:text="${student.studentCollageName}"></td>
+<td><a th:href="@{/student/deleteStudent/{id} (id = ${student.studentId})}"><button class="btn btn-danger">Delete</button></a></td>
+</tr>
+
+</table>
+
+
+</body>
+</html>
